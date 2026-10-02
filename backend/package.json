@@ -1,0 +1,32 @@
+{
+  "name": "adidas-dashboard-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed": "node src/seed.js",
+    "convert": "node scripts/xlsxToCsv.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "adidas-sales-dashboard": "file:..",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "csv-parse": "^7.0.3",
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongodb-memory-server": "^11.3.0",
+    "mongoose": "^9.10.3",
+    "morgan": "^1.12.1"
+  },
+  "devDependencies": {
+    "xlsx": "^0.18.5"
+  }
+}
