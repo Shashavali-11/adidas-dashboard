@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-revenue: #2563eb;
+  --color-profit: #10b981;
+  --color-cost: #f59e0b;
+  --color-units: #8b5cf6;
+  --color-alert: #ef4444;
+}
+
+body { @apply bg-slate-50 text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-200; }
+
+@layer components {
+  .card { @apply rounded-2xl border border-slate-200/80 bg-white shadow-[0_1px_2px_rgba(15,23,42,.04),0_4px_16px_-6px_rgba(15,23,42,.08)] transition dark:border-slate-800 dark:bg-slate-900; }
+  .card-hover { @apply hover:-translate-y-0.5 hover:shadow-lg; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50 bg-slate-900 text-white hover:bg-slate-700 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200; }
+  .btn-ghost { @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50 border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800; }
+  .input { @apply w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-700 dark:bg-slate-900; }
+  .th { @apply px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400; }
+  .td { @apply px-4 py-3 text-sm; }
+}
+
+.recharts-text, .recharts-cartesian-axis-tick-value { fill: currentColor; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #94a3b855; border-radius: 8px; }
+@keyframes fadein { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.fade-in { animation: fadein .25s ease-out; }
+
+.hero-bg { background: radial-gradient(1200px 500px at 85% -10%, #2b3a8f55, transparent 60%), radial-gradient(800px 400px at 0% 110%, #84cc1633, transparent 60%), linear-gradient(135deg, #0b0f1a 0%, #111827 55%, #172554 100%); }
+.stripes { position: absolute; right: -40px; top: 0; bottom: 0; width: 320px; opacity: .10; pointer-events: none;
+  background: repeating-linear-gradient(115deg, transparent 0 46px, #fff 46px 86px); mask-image: linear-gradient(to left, #000, transparent); -webkit-mask-image: linear-gradient(to left, #000, transparent); }
+.chip { @apply inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-semibold transition; }
+.chip-idle { @apply bg-white/10 text-slate-200 ring-1 ring-white/10 hover:bg-white/20; }
+.chip-on { @apply bg-lime-300 text-slate-900 shadow-[0_0_0_4px_rgba(190,242,100,.18)]; }
+.glass-input { @apply rounded-xl border border-white/10 bg-white/10 px-3 py-2 text-sm text-white outline-none transition focus:border-lime-300/70 focus:bg-white/15 [color-scheme:dark]; }
+.glass-input option { @apply bg-slate-900 text-white; }
+.section-title { @apply text-lg font-extrabold tracking-tight text-slate-900 dark:text-white; }
+@keyframes pop { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: none; } }
+.pop { animation: pop .18s ease-out; }
